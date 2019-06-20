@@ -23,6 +23,7 @@ export class ProductService {
   }
 
   getById(productId: number): Observable<Product> {
+    console.log("Getting id " + productId);
     return this.http.get<Product[]>('/data/products.json')
                     .pipe( map(
                       products => <Product>products.find(p => p.id === productId)
