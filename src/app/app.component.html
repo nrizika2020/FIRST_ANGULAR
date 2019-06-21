@@ -1,21 +1,28 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar class="toolbar">
-  <button class="toolbar__icon-button" mat-icon-button>
-    <mat-icon>menu</mat-icon>
-  </button>
 
-  <div class="toolbar__logo-title-group" fxLayout fxLayoutAlign="center center">
-    <a routerLink="/" fxLayout>
-      <img class="toolbar__logo" src="./assets/logo.svg" alt="NgAuction Logo">
-    </a>
-    <a class="toolbar__title" routerLink="/">Triple A's</a>
-  </div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <aaa-search-form (search)="sidenav.close()"></aaa-search-form>
+  </mat-sidenav>
+  <mat-toolbar class="toolbar">
+    <button class="toolbar__icon-button"
+            mat-icon-button
+            (click)="sidenav.toggle()">
+      <mat-icon>search</mat-icon>
+    </button>
 
-  <div fxFlex></div> <!-- Push shopping cart icon to the right -->
+    <div class="toolbar__logo-title-group" fxLayout fxLayoutAlign="center center">
+      <a routerLink="/" fxLayout>
+        <img class="toolbar__logo" src="./assets/logo.svg" alt="NgAuction Logo">
+      </a>
+      <a class="toolbar__title" routerLink="/">Triple A's</a>
+    </div>
 
-  <button mat-icon-button class="toolbar__icon-button toolbar__shopping-cart-button">
-    <mat-icon>shopping_cart</mat-icon>
-  </button>
-</mat-toolbar>
+    <div fxFlex></div> <!-- Push shopping cart icon to the right -->
 
-<router-outlet></router-outlet>
+    <button mat-icon-button class="toolbar__icon-button toolbar__shopping-cart-button">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+</mat-sidenav-container>
